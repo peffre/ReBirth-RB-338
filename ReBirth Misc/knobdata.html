@@ -1,0 +1,273 @@
+<html>
+<head>
+<title>Peff's ReBirth Mod Knob Analysis</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="keywords" content="Peff, MP3, Kurt Kurasaki, TB-303 Samples, ReBirth RB-338 Mods, Analogue Synthesis">
+		<meta name="description" content="Knob Rendering Tips, Songs, MP3 files, and Vintage Analogue Synth Samples.  Website of Kurt Kurasaki, a.k.a Peff.  Audio Resources for electronic music and ReBirth RB-338 and Peff's MP3 music.">
+		<link href="../../2002site.css" rel="stylesheet" media="screen">
+	</head>
+<style TYPE="text/css">
+<!--
+
+BODY {margin-top: 10; font-family: geneva, Arial, helvetica, sans-serif;}
+A:link, A:visited, A:active { text-decoration: none;}
+A:hover { color: #ff9900; }
+.nav {font-family: Geneva, Arial, Helvetica, sans-serif; line-height: 18px; margin-top: 4px; }
+.Hp1 {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; color: #333399; letter-spacing: normal; text-align: left; word-spacing: normal}
+.HP2 {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; color: #333399; font-weight: normal}
+.HT1 {  font-family: Geneva, Arial, Helvetica; font-size: 9px; font-style: normal; font-weight: normal; color: #000000}
+.HT2 { font-family: Geneva, Arial, Helvetica; font-size: 9px; font-style: normal; font-weight: normal}
+.HT2B { font-family: Geneva, Arial,  Helvetica; font-size: 9px; font-style: normal; font-weight: bold}
+.HL1B {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: #000000}
+.HST {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px}
+.BD {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold}
+-->
+</style>
+
+<body bgcolor="#E4E8DF">
+<table border="0" width="583" align="CENTER">
+  <tr align="left" valign="top"> 
+    <td height="87" colspan="3"><img src="knobrender.gif" width="370" height="80"> 
+    </td>
+  </tr>
+  <tr align="left" valign="top" height="43"> 
+    <td height="43" colspan="3">
+					<p class="Hp1">ReBirth Knobs...<BR>
+						<span class="HP2">Yeah, we love them!</span></p>
+				</td>
+  </tr>
+  <tr height="671"> 
+    <td width="48%" height="671" align="left" valign="top"> 
+      <div align="LEFT"> <span class="HT2B">Getting Perfect Rotation From knobs</span><BR>
+        <span class="HT2"><font color="#000000">I've been using Infini-D by Metacreations 
+        (now corel) </font></span><span class="HT2"><font color="#000000">to build 
+        a 3d model of the knob. I suppose any 3d rendering application will work 
+        fine. This seems to be the easiest way to get perfect rotation out of 
+        knob actions. </font></span><span class="HT2"><font color="#000000">Photoshop's 
+        rotation feature just doesn't quite cut it. Rotated images usually end 
+        up wobbly. I think the vectoring actions in the upcoming Photoshop 6 will 
+        probably work, but we shall see. </font></span>
+        <p><font color="#000000" class="HT2">With the 3d Modeling application, you create 
+          a model of the knob, then animate it to rotate around a center axis. 
+          After rending the animation, you can cut and paste each frame into a 
+          film strip and save the assembled animation frames as a jpg and pack 
+          it into your mod.</font></p>
+        <p><font color="#000000" class="HT2"><span class="HT2B">Dancing Pixels 
+          on the Knob Background</span></font><BR>
+          <font color="#000000" class="HT2">Yep this happens if the background 
+          isn't exactly the same in each frame. A quick way to create a perfect 
+          set of background frames is to select a single frame with the selection 
+          tool in photoshop, then &quot;Define Pattern.&quot; Then select the 
+          entire strip and &quot;Fill&quot; using &quot;Pattern.&quot; Move this 
+          background layer behind the knob layer and you have a perfect set of 
+          backgrounds for each frame.</font></p>
+        <p><span class="HT2B">How ReBirth Handles Knob Animation Strips</span><br>
+          <span class="HT2"><font color="#000000">After experimenting for such 
+          a long time, I've figured out how ReBirth responds to these animation 
+          strips. The program reads the horizontal width of the jpg - <b>Total 
+          w(pix)</b>. It then divides that number by the amount of frames it's 
+          supposed to have -<b> Frames</b>. It then subracts 1 pixel for the divider 
+          line - <b>div(pix)</b>. This determines the animation frame width -<b> 
+          w(pix)</b>. The height is calculated by reading the vertical size of 
+          the jpg - <b>h(pix)</b></font></span></p>
+        <p><span class="HT2">Altering the vertical size of knobs is pretty easy, 
+          just increase the vertical size of your image. </span><span class="HT2">Increasing 
+          the width of the knob frames requires a bit of algebra. For example, 
+          I usually like to make the 909 knobs the same size as the 808 knobs. 
+          The 909 knobs are displayed in 12x12 pixel frames. Increase them to 
+          13x13 pixels as follows:</span></p>
+        <blockquote> 
+          <p><span class="HT2">h(pix) 13</span></p>
+          <p><span class="HT2">w(pix) 13 + div(pix) 1 = 14pix</span></p>
+          <p><span class="HT2">14pix * 41 frames = 574 pixels</span></p>
+          <p><span class="HT2">574 pix - 1 div(pix) = 573 pixels.</span></p>
+        </blockquote>
+        <p><span class="HT2">so the final image size of 12565.jpg (the 909 knobs) 
+          would be 13 pixels high by 573 pixels wide.</span></p>
+      </div>
+    </td>
+    <td width="3%" height="671">&nbsp;</td>
+    <td width="49%" height="671" align="left" valign="top"> 
+      <p class="HT2B">Short Cuts<br>
+        <font color="#000000" class="HT2">I use the Avid Quicktime Import Plug 
+        In (which came with the Avid Video editing software for the Powermac 8500) 
+        - this can be a wee bit difficult to find now that the software is so 
+        outdated.</font> </p>
+      <p><span class="HT2"><font color="#000000">Since the movie is imported as 
+        a vertical film strip, it must be rotated 90¡ counter-dclockwise. To compensate 
+        for this rotation the animation start position is usually about 10 o'clock 
+        Mid position is 3 o'clock and finish position is usually 8 o'clock. When 
+        rotated. the start position will be 7 o'clock, mid position 12 o'clock 
+        and finish position is 5 o'clock.</font></span></p>
+      <p><span class="HT2"><font color="#000000">Reduce the image size to fit 
+        the dimensions listed below with the Bicubic dither setting. I only reduce 
+        the image width and let photoshop automatically calculate the height (proportions 
+        constrained).</font></span></p>
+      <p><span class="HT2"><font color="#000000"> On the new layer, copy the background 
+        of knob (including fixed shading etc onto this masking layer. Then disable 
+        the bottom knob layer so that only the mask shows (the transparent grey 
+        and white blocks should be visible where the knob normally is).</font></span></p>
+      <p><span class="HT2"><font color="#000000">Select the area of 1 frame including 
+        divider (e.g. 12507.jpg select 30 h x 31w area) Then "Define Pattern" 
+        from the selection Create a new layer. Select ALL . Then Fill with the 
+        pattern. If your dimensions are set properly, the Fill should align perfectly 
+        with each frame of the knob allowing the changing steps of the knob to 
+        show through and keeping the frame background identical on each step:) 
+        </font></span></p>
+      <p><span class="HT2"><font color="#000000">Save this image as a photoshop 
+        document keeping the layers in case you need to make changes. Then save 
+        a copy as a jpeg into your MOD folder RePeat this for each knob Well this 
+        is how i do it...Perhaps you can use some of the techniques involved.. 
+        hope this helps a bit:)</font></span></p>
+      <p>&nbsp;</p>
+      <p>&nbsp; </p>
+    </td>
+  </tr>
+  <tr height="95"> 
+    <td height="95" colspan="3">
+					<p></p>
+					<table border="0" width="100%" align="CENTER" bgcolor="#CCCCCC">
+        <tr bgcolor="#6c6c6c" bordercolordark="#3366FF" bordercolorlight="#99FFFF"> 
+          <td class="HL1B" width="16%" nowrap> 
+            <div align="CENTER"> <font color="white" face="Arial, Helvetica, sans-serif"><b>Image</b></font> 
+            </div>
+          </td>
+          <td class="HL1B" width="10%" nowrap> 
+            <div align="CENTER"> <font color="white" face="Arial, Helvetica, sans-serif"><b>h(pix)</b></font> 
+            </div>
+          </td>
+          <td class="HL1B" width="7%" nowrap> 
+            <div align="CENTER"> <font color="white" face="Arial, Helvetica, sans-serif"><b>w(pix)</b></font> 
+            </div>
+          </td>
+          <td class="HL1B" width="16%" nowrap> 
+            <div align="CENTER"> <font color="white" face="Arial, Helvetica, sans-serif"><b>div(pix)</b></font> 
+            </div>
+          </td>
+          <td class="HL1B" width="10%" nowrap> 
+            <div align="CENTER"> <font color="white" face="Arial, Helvetica, sans-serif"><b>Frames</b></font> 
+            </div>
+          </td>
+          <td class="HL1B" width="16%" nowrap> 
+            <div align="CENTER"> <font color="white" face="Arial, Helvetica, sans-serif"><b>Total 
+              w (pix)</b></font> </div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="16%" class="HT2B"> 
+            <div align="CENTER"> <font color="#000000">12507.jpg</font> </div>
+          </td>
+          <td width="10%" class="HT2"> 
+            <div align="CENTER"> <font color="#000000">30</font> </div>
+          </td>
+          <td width="7%" class="HT2"> 
+            <div align="CENTER"> <font color="#000000">30</font> </div>
+          </td>
+          <td width="16%" class="HT2"> 
+            <div align="CENTER"> <font color="#000000">1</font> </div>
+          </td>
+          <td width="10%" class="HT2"> 
+            <div align="CENTER"> <font color="#000000">54</font> </div>
+          </td>
+          <td width="16%" class="HT2"> 
+            <div align="CENTER"> <font color="#000000">1674</font> </div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="16%" class="HT2B"> 
+            <div align="CENTER"> <font color="#000000">12521.jpg</font> </div>
+          </td>
+          <td width="10%" class="HT2"> 
+            <div align="CENTER"> <font color="#000000">13</font> </div>
+          </td>
+          <td width="7%" class="HT2"> 
+            <div align="CENTER"> <font color="#000000">13</font> </div>
+          </td>
+          <td width="16%" class="HT2"> 
+            <div align="CENTER"> <font color="#000000">1</font> </div>
+          </td>
+          <td width="10%" class="HT2"> 
+            <div align="CENTER"> <font color="#000000">36</font> </div>
+          </td>
+          <td width="16%" class="HT2"> 
+            <div align="CENTER"> <font color="#000000">504</font> </div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="16%" class="HT2B" height="7"> 
+            <div align="CENTER"> <font color="#000000">12522.jpg</font> </div>
+          </td>
+          <td width="10%" class="HT2" height="7"> 
+            <div align="CENTER"> <font color="#000000">13</font> </div>
+          </td>
+          <td width="7%" class="HT2" height="7"> 
+            <div align="CENTER"> <font color="#000000">13</font> </div>
+          </td>
+          <td width="16%" class="HT2" height="7"> 
+            <div align="CENTER"> <font color="#000000">1</font> </div>
+          </td>
+          <td width="10%" class="HT2" height="7"> 
+            <div align="CENTER"> <font color="#000000">36</font> </div>
+          </td>
+          <td width="16%" class="HT2" height="7"> 
+            <div align="CENTER"> <font color="#000000">504</font> </div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="16%" height="15" class="HT2B"> 
+            <div align="CENTER"> <font color="#000000">12552.jpg</font> </div>
+          </td>
+          <td width="10%" height="15" class="HT2"> 
+            <div align="CENTER"> <font color="#000000">19</font> </div>
+          </td>
+          <td width="7%" height="15" class="HT2"> 
+            <div align="CENTER"> <font color="#000000">18</font> </div>
+          </td>
+          <td width="16%" height="15" class="HT2"> 
+            <div align="CENTER"> <font color="#000000">1</font> </div>
+          </td>
+          <td width="10%" height="15" class="HT2"> 
+            <div align="CENTER"> <font color="#000000">32</font> </div>
+          </td>
+          <td width="16%" height="15" class="HT2"> 
+            <div align="CENTER"> <font color="#000000">608</font> </div>
+          </td>
+        </tr>
+        <tr height="12"> 
+          <td width="16%" height="12" nowrap class="HT2B"> 
+            <div align="CENTER"> <font color="#000000">12565.jpg</font> </div>
+          </td>
+          <td width="10%" height="12" nowrap class="HT2"> 
+            <div align="CENTER"> <font color="#000000">12</font> </div>
+          </td>
+          <td width="7%" height="12" nowrap class="HT2"> 
+            <div align="CENTER"> <font color="#000000">12</font> </div>
+          </td>
+          <td width="16%" height="12" nowrap class="HT2"> 
+            <div align="CENTER"> <font color="#000000">1</font> <font color="#000000">(except 
+              41)</font> </div>
+          </td>
+          <td width="10%" height="12" nowrap class="HT2"> 
+            <div align="CENTER"> <font color="#000000">41</font> </div>
+          </td>
+          <td width="16%" height="12" nowrap class="HT2"> 
+            <div align="CENTER"> <font color="#000000">532 (533-1)</font> </div>
+          </td>
+        </tr>
+      </table>
+				</td>
+  </tr>
+			<tr height="95">
+				<td colspan="3" height="95"><csobj w="583" h="24" t="Component" csref="../../../public_html.data/Components/copyright.html" occur="51">
+						<div align="right">
+							<p class="HT2"><font color="#336633">&copy;1997-2004 Kurt Kurasaki<BR>
+									
+					
+					All Rights Reserved</font></p>
+						</div>
+					</csobj></td>
+			</tr>
+		</table>
+		<p></p>
+	</body>
+</html>
